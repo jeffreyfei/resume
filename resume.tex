@@ -8,7 +8,6 @@
 \renewcommand*\familydefault{\sfdefault} %% Only if the base font of the document is to be sans serif
 \usepackage[T1]{fontenc}
 \usepackage{float}
-\usepackage{lipsum}% For 'Lorem Ipsum' dummy text
 \usepackage[pscoord]{eso-pic}% The zero point of the coordinate systemis the lower left corner of the page (the default).
 \pagestyle{empty}
 \usepackage{xcolor}
@@ -22,13 +21,6 @@
 \usepackage{fontawesome/fontawesome}
 
 % Reference: https://tex.stackexchange.com/questions/24663/how-to-place-a-floating-text-box-at-a-specified-location-in-page-coordinates
-
-\newcommand{\placetextbox}[3]{% \placetextbox{<horizontal pos>}{<vertical pos>}{<stuff>}
-  \setbox0=\hbox{#3}% Put <stuff> in a box
-  \AddToShipoutPictureFG*{% Add <stuff> to current page foreground
-    \put(\LenToUnit{#1\paperwidth},\LenToUnit{#2\paperheight}){\vtop{{\null}\makebox[0pt][c]{#3}}}%
-  }%
-}%
 
 \newcommand{\cvsection}[1]{
     \\[0.2in]
@@ -62,11 +54,12 @@
 
 \newcommand{\cvsubsection}[1]{
     \fontsize{12}{15}\selectfont
-    \indent #1\\[0.1in]
+    \indent #1\\
 }
 
 \begin{document}
-\fontsize{33}{33}\selectfont{Jeffrey Fei}
+\fontsize{33}{33}\selectfont{Jeffrey Fei}\\[0.02in]
+\indent\fontsize{13}{13}\selectfont \textit{Infrastructure Engineer}
 \noindent\rule{\textwidth}{1pt}\\[0.05in]
 \fontsize{11}{13}\selectfont
 \indent \faPhone\hspace{0.05in} 415-645-3072
@@ -106,5 +99,4 @@
 \cvsection{Education}
 \cmpname{University of Waterloo}
 \cvsubsection{Bachelor of Software Engineering}
-\placetextbox{0.86}{0.955}{\fontsize{13}{13}\selectfont \textit{Infrastructure Engineer}}%
 \end{document}

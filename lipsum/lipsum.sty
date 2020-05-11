@@ -581,7 +581,7 @@
 \NewDocumentCommand\SetLipsumText{m}{%
   \IfLipsumText{#1}{}{
     \seq_clear:N\g_lipsum_paragraph_seq
-    \file_input:n{#1.ltd}
+    \file_input:n{lipsum/#1.ltd}
     \str_set:Nn\g_lipsum_text_str{#1}
   }
 }

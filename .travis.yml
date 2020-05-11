@@ -1,5 +1,6 @@
-sudo: required
+language: generic
 dist: trusty
+sudo: required
 before_install:
     - sudo add-apt-repository "deb http://us.archive.ubuntu.com/ubuntu/ xenial main"
     - sudo add-apt-repository "deb http://us.archive.ubuntu.com/ubuntu/ xenial universe"
