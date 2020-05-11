@@ -8,7 +8,6 @@ before_install:
     - git clone https://$GITHUB_USER:$GITHUB_TOKEN@github.com/jeffreyfei/jeffreyfei.github.io.git ~/website
 
 script:
-    - set -e
     - xelatex -halt-on-error resume.tex
     - cp resume.pdf ~/website/assets/resume.pdf
     - cd ~/website; git add assets/resume.pdf; git commit -m "Travis autobuild"; git push origin master
