@@ -1,0 +1,13 @@
+sudo: required
+dist: trusty
+before_install:
+    - sudo add-apt-repository "deb http://us.archive.ubuntu.com/ubuntu/ xenial main"
+    - sudo add-apt-repository "deb http://us.archive.ubuntu.com/ubuntu/ xenial universe"
+    - sudo apt-get update
+    - sudo apt-get install texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra
+    - git clone https://$GITHUB_USER:$GITHUB_TOKEN@github.com/jeffreyfei/jeffreyfei.github.io.git ~/website
+
+script:
+    - xelatex -halt-on-error resume.tex
+    - cp resume.pdf ~/website/assets/resume.pdf
+    - cd ~/website; git add assets/resume.pdf; git commit -m "Travis autobuild"; git push origin master
